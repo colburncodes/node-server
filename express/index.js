@@ -1,4 +1,5 @@
 const express = require("express");
+const router = require("./routes.js");
 // listen to port 3000
 const { PORT = 3000 } = process.env;
 
@@ -64,7 +65,6 @@ const animals = [
 ];
 
 app.get("/animals", (req, res) => {
-  debugger;
   let result = animals;
   if (req.query.kind) {
     result = result.filter((item) => item.breed === req.query.breed);
@@ -76,3 +76,8 @@ app.get("/animals", (req, res) => {
   res.send(result);
 });
 
+/// <summary>
+//  Dynamic Routees are used handling URLs that match a certain rule.
+/// <summary>
+
+app.get("/users/:id", (req, res) => {});
