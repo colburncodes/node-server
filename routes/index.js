@@ -1,5 +1,3 @@
-const http = require("node:http");
-
 const { getMainPage, postForm } = require(".");
 
 const router = (req, res) => {
