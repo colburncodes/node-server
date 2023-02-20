@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "mongoose": "^6.9.2"
+    "mongoose": "^6.9.2",
+    "pg-promise": "^11.2.0"
   }
 }
