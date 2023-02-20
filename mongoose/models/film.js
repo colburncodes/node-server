@@ -7,10 +7,15 @@ const filmSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 30,
   },
+  director: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "director",
+    required: true,
+  },
   genre: {
     type: String,
-    enum: ['comedy', 'drama', 'action', 'thriller', 'documentary']
-  }
+    enum: ["comedy", "drama", "action", "thriller", "documentary"],
+  },
 });
 
 module.exports = mongoose.model("film", filmSchema);

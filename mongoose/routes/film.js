@@ -1,21 +1,16 @@
 const router = require("express").Router();
-const Film = require("../models/film");
+const { getFilms, createFilm } = require("../controllers/films");
 
 /// <summary>
 //  create() method is like a promise
 //  you can add then() and catch()
 /// </summary>
-router.post("/", (req, res) => {
-  const { title, genre } = req.body;
-
-  Film.create({ title, genre })
-    .then((film) => res.send({ data: film }))
-    .catch((err) => res.status(500).send({ message: "Error" }));
-});
+router.post("/", createFilm);
 
 // READING DOCUMENTS
 // This involves searching for documents and reading data from them if found.
 // There are many ways to find a document, the three most popular being findById(), findOne() and find().
+router.get("/", getFilms);
 
 router.get("/:id", (req, res) => {
   Film.findById(req.params.id)
